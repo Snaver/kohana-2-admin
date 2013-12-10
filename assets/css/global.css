@@ -1,0 +1,96 @@
+/* Site styles
+ *
+ */
+	body { background-color:#231f20; color:#fff; }
+	
+	legend { color:#fff; }
+	
+	#header_account { margin-top:10px; }
+	#search_box { margin-top:10px; }
+	
+	#content { background-color:#fff; color:#333333; padding-bottom:15px; padding-top:15px; }
+	
+	#content h1 { margin-top:0; }
+	
+	#admin_list_table label { margin:0; }
+	
+	#admin_list_options .form-group { width:auto; display:inline-block; margin-bottom:0; }
+	#admin_list_options .form-group label { width:auto; float:left; margin-right:10px; height:32px; line-height:32px; }
+	#admin_list_options .form-group select { width:auto; float:left; text-align:left; }
+	
+	.admin_form span.required { color:Red; display:inline-block }
+	.admin_form label.col-lg-2, .admin_form label.col-lg-3 { padding-right:0; font-size:13px; }
+	
+	.admin_form .tab-pane { padding-top:20px; }
+	
+	.admin_form .table tbody tr td { vertical-align:middle }
+	.admin_form .table tbody tr td p { margin:0 }
+	
+	.admin_form .table tbody.files tr td { word-break:break-all; } 
+	
+	.single_uploader input[type="text"] { display:none; }
+	
+	#list_actions { display:none }
+	
+	#product_table_container .remove_table { display:none; }
+	.product_table tbody tr .new_product_line { display:none; } 
+	.product_table tbody tr:last-child .new_product_line { display:inline-block; }
+	
+	form.tasks_area #task_notes, form.opportunities_area #opportunity_notes { min-height:328px }
+	
+	footer { margin-bottom:40px; }
+
+	#loading_screen { position:fixed; z-index:9999; top:0; left:0; width:100%; height:100%; background-color:rgba(204, 204, 204, 0.2); }
+	#loading_screen img { display:block; position:relative; top:50%; left:50%; margin-top:-16px; margin-left:-16px; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+
+/* Table tbody scroll
+ *
+ */
+	div.tableContainer{border-top:1px solid #ddd;clear:both;height:400px;overflow:auto}
+	div.tableContainer{overflow:hidden}
+	div.tableContainer table{float:left}
+	div.tableContainer thead.fixedHeader tr{position:relative}
+	div.tableContainer thead.fixedHeader tr{display:block}
+	div.tableContainer tbody tr{display:block}
+	div.tableContainertbody tr:first-child td{border-top:none}
+	div.tableContainer tbody.scrollContent{display:block;height:360px;overflow:auto;width:100%}
+
+/* Customise / Extend Bootstrap
+ *
+ */
+	.top-buffer { margin-top:40px; }
+	.top-buffer-medium { margin-top:20px; }
+	
+	.bottom-buffer { margin-bottom:40px; }
+	.bottom-buffer-medium { margin-bottom:20px; }
+	
+	.form-horizontal .control-label { text-align:left; }
+	
+	.modal.wide .modal-dialog { width:900px; }
+	
+	.popover { min-width:200px; }
+	
+	textarea.form-control { min-height:83px; resize:vertical }
+	
+	.modal { color:#333333; }
+	
+	.bootstrap-datetimepicker-widget table { color:#333333 }
+
+
+/* Non-responsive overrides
+ *
+ * Utilitze the following CSS to disable the responsive-ness of the container,
+ * grid system, and navbar.
+ */
+
+	/* Reset the container */
+	.container {
+	  max-width: none !important;
+	  width: 1000px !important;
+	}
+
+
+/* Helper classes
+ *
+ */
+	.clear {clear: both;}
