@@ -11,7 +11,7 @@ $config['site_domain'] = '/';
  * specified, then the current protocol is used, or when possible, only an
  * absolute path (with no protocol/domain) is used.
  */
-$config['site_protocol'] = '';
+$config['site_protocol'] = 'http';
 
 /**
  * Name of the front controller for this application. Default: index.php
@@ -30,7 +30,11 @@ $config['url_suffix'] = '';
  * The internal cache stores file paths and config entries across requests and
  * can give significant speed improvements at the expense of delayed updating.
  */
-$config['internal_cache'] = FALSE;
+if (IN_PRODUCTION) {
+	$config['internal_cache'] = 60 * 5;
+} else {
+	$config['internal_cache'] = FALSE;
+}
 
 /**
  * Internal cache directory.
@@ -93,7 +97,13 @@ $config['log_directory'] = APPPATH.'logs';
  * Enable or disable displaying of Kohana error pages. This will not affect
  * logging. Turning this off will disable ALL error pages.
  */
-$config['display_errors'] = TRUE;
+if (IN_PRODUCTION) {
+	$config['display_errors'] = FALSE;
+}
+else
+{
+	$config['display_errors'] = TRUE;
+}
 
 /**
  * Enable or disable statistics in the final output. Stats are replaced via
@@ -108,6 +118,11 @@ $config['render_stats'] = TRUE;
  * extension to the Controller class would be named MY_Controller.php.
  */
 $config['extension_prefix'] = 'MY_';
+
+/**
+ * Asset version query string, used on scripts and styles
+ */
+$config['asset_version'] = '?v=0.1';
 
 /**
  * Additional resource paths, or "modules". Each path can either be absolute

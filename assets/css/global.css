@@ -1,10 +1,7 @@
 /* Site styles
  *
  */
-	body { background-color:#231f20; color:#fff; }
-	
-	legend { color:#fff; }
-	
+
 	#header_account { margin-top:10px; }
 	#search_box { margin-top:10px; }
 	
@@ -32,14 +29,9 @@
 	
 	#list_actions { display:none }
 	
-	#product_table_container .remove_table { display:none; }
-	.product_table tbody tr .new_product_line { display:none; } 
-	.product_table tbody tr:last-child .new_product_line { display:inline-block; }
-	
-	form.tasks_area #task_notes, form.opportunities_area #opportunity_notes { min-height:328px }
-	
 	footer { margin-bottom:40px; }
 
+	/* Loading overlay, use to block site interaction and show loading spinner */
 	#loading_screen { position:fixed; z-index:9999; top:0; left:0; width:100%; height:100%; background-color:rgba(204, 204, 204, 0.2); }
 	#loading_screen img { display:block; position:relative; top:50%; left:50%; margin-top:-16px; margin-left:-16px; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
 
