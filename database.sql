@@ -16,13 +16,32 @@ CREATE DATABASE /*!32312 IF NOT EXISTS*/`kohana-2-admin` /*!40100 DEFAULT CHARAC
 
 USE `kohana-2-admin`;
 
+/*Table structure for table `example_1` */
+
+DROP TABLE IF EXISTS `example_1`;
+
+CREATE TABLE `example_1` (
+  `example_1_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `example_1_name` varchar(255) NOT NULL,
+  `example_1_email` varchar(100) NOT NULL,
+  `example_1_text` text,
+  `example_1_dropdown` int(11) unsigned DEFAULT NULL,
+  `example_1_status` tinyint(1) unsigned DEFAULT '1',
+  `example_1_created_date` datetime DEFAULT NULL,
+  `example_1_updated_date` datetime DEFAULT NULL,
+  `example_1_deleted` tinyint(1) unsigned DEFAULT '0',
+  `example_1_deleted_date` datetime DEFAULT NULL,
+  `example_1_last_editor` tinyint(11) unsigned DEFAULT NULL,
+  PRIMARY KEY (`example_1_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
 /*Table structure for table `fileLinks` */
 
 DROP TABLE IF EXISTS `fileLinks`;
 
 CREATE TABLE `fileLinks` (
   `fileLinksFile_id` int(11) unsigned NOT NULL,
-  `fileLinksItem_area` enum('client_records','products','orders','artworks','opportunities','tasks','template_documents') DEFAULT NULL,
+  `fileLinksItem_area` enum('example_2') DEFAULT NULL,
   `fileLinksItem_id` int(11) unsigned NOT NULL,
   UNIQUE KEY `fileLinksFile_id` (`fileLinksFile_id`,`fileLinksItem_area`,`fileLinksItem_id`),
   KEY `fileLinksItem_type` (`fileLinksItem_area`,`fileLinksItem_id`)
