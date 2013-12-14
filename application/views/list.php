@@ -15,7 +15,7 @@
 				<thead>
 					<tr>
 						<th><a href="javascript:void(0)" id="checkBoxAction" title="Select all entries">+</a></th>
-						<?php foreach($columns as $key => $column){ ?>
+						<?php foreach($list_columns as $key => $column){ ?>
 							<th><a href="<?=url::order($key); ?>" title="Order by <?=$column;?>"><?=$column;?></a></th>
 						<?php } ?>
 						<th class="text-right">Actions</th>
@@ -27,7 +27,7 @@
 							<td>
 								<label><?=form::checkbox(array('id' => 'list_row_checkbox_'.$v[$column_prefix.'id'],'class' => 'list_row_checkbox','name' => 'list_row_checkbox[]'), $v[$column_prefix.'id'], false);?></label>
 							</td>						
-							<?php foreach($columns as $key => $column){ ?>
+							<?php foreach($list_columns as $key => $column){ ?>
 								<td><?=$v[$key];?></td>
 							<?php } ?>						
 							<td class="text-right">

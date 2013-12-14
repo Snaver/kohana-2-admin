@@ -10,6 +10,8 @@ class Base_Controller extends Controller
 {
 	public $section_name;
 	public $section_url;
+	public $list_columns;
+	public $row_name_field;
 	public $id;
 	public $item_name;
 	public $hide_tabs = array();
@@ -33,6 +35,122 @@ class Base_Controller extends Controller
 			$this->session->set('last_url', url::current(TRUE));
 		}
 	}
+	
+	/**
+	 * 
+	 * List page
+	 * 
+	 */
+	public function index()
+	{
+		$view = $this->start_view('list');
+		
+		list($pagination, $data) = $this->list_data();
+		
+		$view->set_global('data', $data);
+		$view->set_global('pagination', $pagination);
+		
+		// Set general info
+		$view->set_global($this->section_details());
+		
+		// Set Breadcrumb items
+		$view->breadcrumbs = array(
+			$this->section_url => $this->section_name,
+			'' => 'Listing'
+		);
+		
+		$this->render_view($view);
+	}
+	
+	public function add(){
+		$view = $this->start_view('form');
+		
+		// The form's default values
+		$fields = $this->model->fields();
+		
+		// Form field errors
+		$errors = array();
+		
+		// Check for post
+		if ($this->input->post()){
+			list($validation, $error_tab) = $this->process_post('add');
+			
+			$errors = $validation->errors($this->section_url);
+			
+			// Repopulate form fields with posted data
+			$fields = misc::field_values($fields, $validation->as_array());
+		}
+		
+		// Pass entry info
+		$view->set_global('fields',$fields);
+		$view->set_global('errors',$errors);
+		
+		// Set general info
+		$view->set_global($this->section_details());
+		
+		// Set Breadcrumb items
+		$view->breadcrumbs = array(
+			$this->section_url => $this->section_name,
+			'' => 'Add'
+		);
+		
+		$view->edit = false;
+		
+		$this->render_view($view);
+	}
+	
+	public function edit($id = false){
+		if(!$id || !is_numeric($id) || !($entry = $this->model->get($id))){
+			url::redirect($this->section_url,301);
+		} else {
+			$this->id = $id;
+			
+			if($this->row_name_field && array_key_exists($this->row_name_field, $entry)){
+				$this->item_name = $entry[$this->row_name_field];
+			}
+		}
+		
+		$view = $this->start_view('form');
+		
+		// Set model properties for editing
+		$this->model->id = $id;
+		$this->model->editing = true;
+		
+		// The form's default values
+		$fields = $this->model->fields();
+		
+		// Form field errors
+		$errors = array();
+				
+		// Check for post
+		if ($this->input->post()){
+			list($validation, $error_tab_id) = $this->process_post('edit',$id);
+			
+			$errors = $validation->errors($this->section_url);
+			
+			// Repopulate form fields with posted data
+			$fields = misc::field_values($fields, $validation->as_array());
+		} else {
+			$fields = misc::field_values($fields, $entry);
+		}		
+		
+		// Pass entry info
+		$view->set_global('fields',$fields);
+		$view->set_global('errors',$errors);
+		
+		// Set general info
+		$view->set_global($this->section_details());
+		
+		// Set Breadcrumb items
+		$view->breadcrumbs = array(
+			$this->section_url => $this->section_name,
+			'' => 'Edit'
+		);
+		
+		$view->edit = true;
+		
+		$this->render_view($view);
+	}
 
 	/**
 	 * Sets some basic section details for use in admin area templates
@@ -42,6 +160,7 @@ class Base_Controller extends Controller
 		return array(
 			'section_name'	=> $this->section_name,
 			'section_url'	=> $this->section_url,
+			'list_columns'	=> $this->list_columns,
 			'column_prefix'	=> $this->model->db_column_prefix,
 			'tabs'			=> $this->tabs,
 			'hide_tabs'		=> $this->hide_tabs,

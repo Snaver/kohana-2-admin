@@ -8,12 +8,21 @@
  */
 class Users_Controller extends Base_Controller
 {
-	public $section_name		= 'Users';
-	public $section_url			= 'users';
+	public $section_name = 'Users';
+	public $section_url = 'users';
 	
 	public $tabs = array(
 		0 => 'Basic'
 	);
+	
+	public $list_columns = array(
+		'email'		=> 'Email',
+		'username'	=> 'Username',
+		'role'		=> 'Type',
+		'logins'	=> 'Logins'
+	);
+	
+	public $row_name_field = 'username';
 	
 	public function __construct()
 	{
@@ -32,83 +41,15 @@ class Users_Controller extends Base_Controller
 		$this->model->section_url = $this->section_url;
 	}
 	
-	/**
-	 * 
-	 * List page
-	 * 
-	 */
-	public function index()
-	{
-		$view = $this->start_view('list');
-		
-		list($pagination, $data) = $this->list_data();
-		
-		$view->set_global('data', $data);
-		$view->set_global('pagination', $pagination);
-		
-		// Setup columns to show
-		$view->columns = array(
-			'email'		=> 'Email',
-			'username'	=> 'Username',
-			'role'		=> 'Type',
-			'logins'	=> 'Logins'
-		);
-		
-		// Set general info
-		$view->set_global($this->section_details());
-		
-		// Set Breadcrumb items
-		$view->breadcrumbs = array(
-			$this->section_url => $this->section_name,
-			'' => 'Listing'
-		);
-		
-		$this->render_view($view);
-	}
-	
-	public function add(){
-		$view = $this->start_view('form');
-		
-		// The form's default values
-		$fields = $this->model->fields();
-		
-		// Form field errors
-		$errors = array();
-		
-		// Check for post
-		if ($this->input->post()){
-			list($validation, $error_tab) = $this->process_post('add');
-			
-			$errors = $validation->errors($this->section_url);
-			
-			// Repopulate form fields with posted data
-			$fields = misc::field_values($fields, $validation->as_array());
-		}
-		
-		// Pass entry info
-		$view->set_global('fields',$fields);
-		$view->set_global('errors',$errors);
-		
-		// Set general info
-		$view->set_global($this->section_details());
-		
-		// Set Breadcrumb items
-		$view->breadcrumbs = array(
-			$this->section_url => $this->section_name,
-			'' => 'Edit'
-		);
-		
-		$view->edit = false;
-		
-		$this->render_view($view);
-	}
-	
 	public function edit($id = false){
 		if(!$id || !is_numeric($id) || !($entry = $this->model->get($id))){
 			url::redirect($this->section_url,301);
 		} else {
 			$this->id = $id;
-			$this->item_name = $entry['username'];
+			
+			if($this->row_name_field && array_key_exists($this->row_name_field, $entry)){
+				$this->item_name = $entry[$this->row_name_field];
+			}
 		}
 		
 		$view = $this->start_view('form');
@@ -128,7 +69,7 @@ class Users_Controller extends Base_Controller
 		
 		// Check for post
 		if ($this->input->post()){
-			list($validation, $tabId) = $this->process_post('edit',$id);
+			list($validation, $error_tab_id) = $this->process_post('edit',$id);
 			
 			$errors = $validation->errors($this->section_url);
 			
@@ -155,5 +96,5 @@ class Users_Controller extends Base_Controller
 		
 		$this->render_view($view);
 	}
-
+	
 }
