@@ -232,7 +232,7 @@ class Base_Model extends Model
 		return $result;
 	}
 	
-	public function get($id){		
+	public function get($id){
 		$this->db->select(array($this->db_table.'.*'));
 		
 		$result = $this->db->getwhere($this->db_table, array($this->db_primary_key => $id))->result(false)->current();

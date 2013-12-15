@@ -153,7 +153,8 @@ class Base_Controller extends Controller
 	}
 
 	/**
-	 * Sets some basic section details for use in admin area templates
+	 * Sets some basic variables that should always be used for use 
+	 * in admin area templates
 	 * 
 	 */
 	public function section_details(){
