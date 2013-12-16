@@ -38,7 +38,7 @@ class Files_Controller extends Base_Controller
 		ini_set( 'post_max_size', '150M');
 		ini_set( 'memory_limit', '150M');
 		ini_set( 'max_execution_time', '7200' ); // 2 hours
-		sleep(30);
+		
 		// Set options
 		$this->options = array(
             'script_url'			=> $this->get_full_url().'/',

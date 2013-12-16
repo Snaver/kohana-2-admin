@@ -2,8 +2,8 @@ kohana-2-admin
 ==============
 Barebones base admin system built on Kohana 2.3.1 with Bootstrap CSS framework.
 
-![Example 1](../blob/master/Screenshot-1.png?raw=true)
-![Example 2](../blob/master/Screenshot-2.png?raw=true)
+![Example 1](Screenshot-1.png?raw=true)
+![Example 2](Screenshot-2.png?raw=true)
 
 Projects utilised
 =================
