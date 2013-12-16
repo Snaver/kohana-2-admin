@@ -72,15 +72,15 @@ function init_jquery_upload_multiple(element){
     });
     
     // Callbacks
-    jQuery(document).on('fileuploadadd', element, function (e, data) {
+    jQuery(element).on('fileuploadadd', function (e, data) {
     	jQuery(e.target).find('.fileupload-buttonbar .btn.btn-primary.start').show();
     	jQuery(e.target).find('.fileupload-table').show();
     });
-    jQuery(document).on('fileuploadstart', element, function (e, data) {
+    jQuery(element).on('fileuploadstart', function (e, data) {
     	jQuery(e.target).find('.fileupload-progress').show();
     	jQuery(e.target).find('.fileupload-buttonbar .btn.btn-warning.cancel').show();
     });
-    jQuery(document).on('fileuploadstop', element, function (e, data) {
+    jQuery(element).on('fileuploadstop', function (e, data) {
     	jQuery(e.target).find('.fileupload-progress').hide();
     	jQuery(e.target).find('.fileupload-buttonbar .btn.btn-primary.start').hide();
     	jQuery(e.target).find('.fileupload-buttonbar .btn.btn-warning.cancel').hide();
@@ -126,7 +126,7 @@ function init_jquery_upload_single(element){
 	});
 	
 	// Callbacks
-	jQuery(document).on('fileuploadstart', element, function (e, data) {	
+	jQuery(element).on('fileuploadstart', function (e, data) {	
     	jQuery(e.target).find('.btn.btn-primary i').hide();
     	jQuery(e.target).find('.btn.btn-primary span').hide();
     	jQuery(e.target).find('.btn.btn-primary').append('<img src="'+url_base+'assets/images/loading.gif" alt="Loading" title="Uploading" width="18" height="18" />');
@@ -134,7 +134,7 @@ function init_jquery_upload_single(element){
     	// Disable uploading while current upload in progress
     	jQuery(e.target).find('input[type="file"]').prop('disabled', true);
     });
-    jQuery(document).on('fileuploadadded', element, function (e, data) {
+    jQuery(element).on('fileuploadadded', function (e, data) {
     	// Check for validation errors
 		jQuery.each(data.files, function (index, file) {
 			if (file.hasOwnProperty ('error')) {
@@ -145,7 +145,7 @@ function init_jquery_upload_single(element){
 		// Bug with JS template being appended more than once 
 		jQuery(e.target).find('.files > div *').remove();
     });
-    jQuery(document).on('fileuploadalways', element, function (e, data) {
+    jQuery(element).on('fileuploadalways', function (e, data) {
     	if(data.textStatus == 'success'){
     		if(typeof data.result.files[0].error != 'undefined'){
     			uploadSingleError(e.target,data.result.files[0].error);

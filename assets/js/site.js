@@ -5,7 +5,7 @@ jQuery(document).ready(function($) {
 		init_jquery_upload_multiple(this);
 	});
 	jQuery('.single_uploader').each(function( index ) {
-		//init_jquery_upload_single(this);
+		init_jquery_upload_single(this);
 	});
 	
 	jQuery('.field_input_date .form-control').datetimepicker({

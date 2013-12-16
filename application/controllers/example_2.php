@@ -20,7 +20,7 @@ class Example_2_Controller extends Base_Controller
 		'example_2_email'	=> 'Email'
 	);
 	
-	public $row_name_field = 'example_1_name';
+	public $row_name_field = 'example_2_name';
 	
 	public function __construct()
 	{
