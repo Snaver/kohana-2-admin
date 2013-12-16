@@ -5,9 +5,8 @@ $lang = arr::add_prefix(array(
 		'required' 	=> 'Name is required',
 		'default'	=> 'Invalid input'
 	),
-	'email' => array(
-		'required' 	=> 'Email is required',
-		'email' 	=> 'Email address not valid',
+	'date' => array(
+		'required' 	=> 'Date is required',
 		'default'	=> 'Invalid input'
 	),
 	'text' => array(

@@ -23,7 +23,7 @@ DROP TABLE IF EXISTS `example_1`;
 CREATE TABLE `example_1` (
   `example_1_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `example_1_name` varchar(255) NOT NULL,
-  `example_1_email` varchar(100) NOT NULL,
+  `example_1_date` datetime NOT NULL,
   `example_1_text` text,
   `example_1_dropdown` int(11) unsigned DEFAULT NULL,
   `example_1_status` tinyint(1) unsigned DEFAULT '1',

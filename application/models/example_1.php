@@ -33,13 +33,12 @@ class Example_1_Model extends Base_Model
 				'maxlength'	=> 255,
 				'required'	=> true
 			),
-			'email' => array(
+			'date' => array(
 				'tab'		=> 0,
-				'type'		=> 'input',
-				'label'		=> 'Email',
+				'type'		=> 'date',
+				'label'		=> 'Date',
 				'value'		=> '',
 				'map_post'	=> true,
-				'maxlength'	=> 100,
 				'required'	=> true
 			),
 			'text' => array(
@@ -79,18 +78,6 @@ class Example_1_Model extends Base_Model
 				'required'	=> true
 			)
 		), $this->db_column_prefix);
-	}
-
-	/**
-	 * Add custom validation rules, run parent::validation() to run existing rules
-	 * 
-	 */
-	public function validation($validation = null){
-		$validation = parent::validation($validation);
-				
-		$validation->add_rules($this->db_column_prefix.'email', 'valid::email');
-
-		return $validation;
 	}
 	
 }

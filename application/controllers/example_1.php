@@ -15,8 +15,7 @@ class Example_1_Controller extends Base_Controller
 	);
 	
 	public $list_columns = array(
-		'example_1_name'		=> 'Name',
-		'example_1_email'		=> 'Email'
+		'example_1_name' => 'Name'
 	);
 	
 	public $row_name_field = 'example_1_name';
