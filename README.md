@@ -2,6 +2,9 @@ kohana-2-admin
 ==============
 Barebones base admin system built on Kohana 2.3.1 with Bootstrap CSS framework.
 
+![Example 1](../blob/master/Screenshot-1.png?raw=true)
+![Example 2](../blob/master/Screenshot-2.png?raw=true)
+
 Projects utilised
 =================
 [Kohana - v2.3.1](https://github.com/Snaver/kohana-2.3.1)  
@@ -33,19 +36,28 @@ You can easily extend/amend functionality by overriding the default methods cont
 
 Example 1 shows how minimal a section can be, no extending and simply relying on the functionality of the base controllers. Example 2 shows how you can change/extend certain things, it has custom validation rules (Model), custom field layout (tab-0.php) and custom template variables set (Controller).
 
+Fields
+------
+There are 9 supported field types: Checkbox, File, Input, Input Date, Input Number, Input Password, Radio, Select and Textarea. For each field in the model a type is set, this is then used to load corresponding view which contains the markup and logic for that type.
+
 Database table schema
 =====================
 For consistency all database tables and columns should use the following convention..  
 
 * Table name should be plural of the object that it is representing.. I.e. for page the table name would be pages, etc.
-* Column names should be prefixed the singular name of that object.. I.e. for pages table the column would be page_
-* Tables should always have the following fields: _status(int), _created_date(datetime), _updated_date(datetime), _deleted(int), _deleted_date(datetime) and _last_editor(int).
+* Column names should be prefixed the singular name of that object.. I.e. for pages table the column would be page_.
+* Tables should always have the following fields: \_status(int), \_created_date(datetime), \_updated_date(datetime), \_deleted(int), \_deleted_date(datetime) and \_last_editor(int).
 
 Improvements
 ============
 Obviously normally you wouldn't use Kohana 2 as it's a bit dated now, however it's the framework I personally have most experience with. Saying that, it does the job - better than Procedural non [OOP code](http://stackoverflow.com/questions/1530868/simple-explanation-php-oop-vs-procedural). If I were to use a modern framework I'd use either [laravel](https://github.com/laravel/laravel) or [kohana 3](https://github.com/kohana/kohana).
 
 * **Modules** - Separate out code in to modules: base, admin, admin sections etc
-* **JavaScript** - Use a JavaScript‎framework to better architect logic
+* **JavaScript** - Use a JavaScript‎ framework to better architect the logic, making it easily readable and extendable
  
+WIP / Not finished
+============
 
+* **Searching** - Need to figure out how the top search bar would work searching all items
+* **Multi-File-Upload** - You can't remove items from Multi File Uploader after they've been added
+* **Date time fields** - Need to add datetime and time only field type
