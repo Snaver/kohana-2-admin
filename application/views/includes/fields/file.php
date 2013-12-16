@@ -16,7 +16,7 @@
 		$required = false;
 	}
 	
-	if(array_key_exists($field,$fields) && $fields[$field]['value']) {
+	if(array_key_exists($field,$fields) && $fields[$field]['value'] && is_array($fields[$field]['value'])) {
 		$files = htmlentities(json_encode(array('files' => array(arr::remove_prefix($fields[$field]['value'],'file_')))));
 	} else {
 		$files = false;
