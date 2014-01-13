@@ -132,4 +132,12 @@ $config['asset_version'] = '?v=0.1';
 $config['modules'] = array
 (
 	MODPATH.'auth',		// Authentication
+	MODPATH.'base',		// Base
+	MODPATH.'admin',	// Admin
+	MODPATH.'website',	// Website
+	
+	// Admin section
+	MODPATH.'admins',	// Admins
+	MODPATH.'example_1',// Example 1
+	MODPATH.'example_2'	// Example 2
 );
