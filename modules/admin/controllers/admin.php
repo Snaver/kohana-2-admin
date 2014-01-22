@@ -23,7 +23,7 @@ class Admin_Controller extends Base_Controller
 		
 		$this->auth = new Auth();
 		
-		$this->_authenticated();
+		//$this->_authenticated();
 	}
 	
 	/**
@@ -331,29 +331,7 @@ class Admin_Controller extends Base_Controller
 
 		return;
 	}
-	
-	/**
-	 * Create new view object, load template from $template param
-	 * 
-	 */
-	protected function start_view($template){
-		// Load the view
-		$view = new View($template);
 		
-		// Global vars go here
-		//$view->set_global('var_name', 'var_data');
-		
-		return $view;
-	}
-	
-	/**
-	 * Render view
-	 * 
-	 */
-	protected function render_view(&$view){
-		return $view->render(true);
-	}
-	
 	/**
 	 * Check person is authenticated, else redirect them to login
 	 * 

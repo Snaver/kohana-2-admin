@@ -248,7 +248,7 @@ class Admin_Model extends Base_Model
 		
 		//Add in extra info
 		$data[$this->db_column_prefix.'created_date'] = date('Y-m-d H:i:s');
-		$data[$this->db_column_prefix.'last_editor'] = Auth::instance()->get_user()->id;
+		$data[$this->db_column_prefix.'last_editor'] = Auth::instance()->get_user() ? Auth::instance()->get_user()->id : null;
 			
 		$id = $this->db->insert($this->db_table, $data)->insert_id();
 		

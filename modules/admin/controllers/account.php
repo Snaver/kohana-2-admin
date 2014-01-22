@@ -17,10 +17,10 @@ class Account_Controller extends Base_Controller
 
 	public function login()
 	{
-		if($this->_logged_in()){
+		if(Auth::instance()->logged_in()){
 			url::redirect($this->session->get('last_url') ? $this->session->get('last_url') : '/', 301);
 		}
-		echo 1;exit;
+		
 		$view = $this->start_view('account/login');
 
 		// Create a new user
@@ -37,7 +37,7 @@ class Account_Controller extends Base_Controller
 			
 			// If we've got here then there were login errors
 			$errors = '';
-			foreach ($data->errors('users') as $key => $val)
+			foreach ($data->errors('account') as $key => $val)
 			{
 				$errors .= $val.'<br />';
 			}
@@ -82,7 +82,7 @@ class Account_Controller extends Base_Controller
 				
 			} else {
 				$errors = '';
-				foreach ($data->errors('users') as $key => $val)
+				foreach ($data->errors('account') as $key => $val)
 				{
 					$errors .= $val.'<br />';
 				}

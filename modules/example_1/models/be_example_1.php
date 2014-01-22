@@ -5,7 +5,7 @@
  *
  * 
  */
-class Example_1_Model extends Admin_Model
+class Be_example_1_Model extends Admin_Model
 {
 	// Table constants
 	const DB_TABLE 			= 'example_1';

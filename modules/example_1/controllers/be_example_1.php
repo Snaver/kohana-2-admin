@@ -1,11 +1,11 @@
 <?php defined('SYSPATH') OR die('No direct access allowed.');
 
 /**
- * Example 1 Controller
+ * Example 1 Admin Controller
  *
  *
  */
-class Example_1_Controller extends Admin_Controller
+class Be_example_1_Controller extends Admin_Controller
 {
 	public $section_name = 'Example 1';
 	public $section_url = 'example_1';
@@ -23,10 +23,8 @@ class Example_1_Controller extends Admin_Controller
 	public function __construct()
 	{
 		parent::__construct();
-		
-		$this->_authenticated();
-			
-		$this->model = new Example_1_Model();
+
+		$this->model = new Be_example_1_Model();
 		
 		// Set some model properties
 		$this->model->section_name = $this->section_name;
