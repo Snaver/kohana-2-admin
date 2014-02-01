@@ -131,13 +131,14 @@ $config['asset_version'] = '?v=0.1';
  */
 $config['modules'] = array
 (
-	MODPATH.'auth',			// Authentication
-	MODPATH.'base',			// Base
-	MODPATH.'admin',		// Admin AKA BA (Back End)
-	MODPATH.'front_end',	// Front End AKA FA
+	MODPATH.'auth',				// Authentication module
+	MODPATH.'base',				// Base module
+	MODPATH.'admin',			// Admin (BE / Back End) module
+	MODPATH.'front_end',		// Front End (FE) module
+	MODPATH.'files',			// File upload module
 	
 	// Admin section
-	MODPATH.'admins',		// Admins
-	MODPATH.'example_1',	// Example 1
-	MODPATH.'example_2'		// Example 2
+	MODPATH.'admins',			// Admins module
+	MODPATH.'example_1',		// Example 1 module
+	MODPATH.'example_2'			// Example 2 module
 );

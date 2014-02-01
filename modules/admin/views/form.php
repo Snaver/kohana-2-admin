@@ -19,7 +19,7 @@
 			<?php foreach($tabs as $k => $tab){ ?>
 				<?php if(!in_array($k,$hide_tabs)) { ?>
 					<div class="tab-pane fade <?=($k == $active_tab ? 'active in' : '');?>" id="tab-<?=$k;?>">
-						<?=new View($section_url.'/tab-'.$k);?>
+						<?=admin::tabTemplate($section_url,$k);?>
 					</div>
 				<?php } ?>
 			<?php } ?>

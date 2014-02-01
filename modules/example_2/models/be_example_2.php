@@ -1,11 +1,11 @@
 <?php defined('SYSPATH') OR die('No direct access allowed.');
 
 /**
- * Example 2 model
+ * Example 2 admin model
  *
  * 
  */
-class Example_2_Model extends Admin_Model
+class Be_example_2_Model extends Admin_Model
 {
 	// Table constants
 	const DB_TABLE 			= 'example_2';
@@ -91,7 +91,7 @@ class Example_2_Model extends Admin_Model
 	}
 
 	/**
-	 * Add custom validation rules, run parent::validation() to run existing rules
+	 * Add custom validation rules, run parent::validation() to run existing rules first
 	 * 
 	 */
 	public function validation($validation = null){
@@ -103,18 +103,19 @@ class Example_2_Model extends Admin_Model
 	}
 	
 	/**
-	 * Run after insert/update - process single upload
+	 * Run after insert/update methods
 	 * 
 	 */
 	public function post_process($data){
-				
+		
+		// Process single file upload, key used is '_file'
 		if(array_key_exists($this->db_column_prefix.'file', $data)){
 			if(!empty($data[$this->db_column_prefix.'file']['file_system_name']) && file_exists(DOCROOT.'uploads/'.$data[$this->db_column_prefix.'file']['file_system_name'])){	
 				
 				// Mark any previous files as inactive
 				file::inactive($this->id,$this->section_url,$this->section_url);
 				
-				// Insert
+				// Insert entry in to files database table
 				$token = file::insert(
 					$this->id,
 					$this->section_url,
@@ -126,6 +127,7 @@ class Example_2_Model extends Admin_Model
 					$data[$this->db_column_prefix.'file']['file_extension']
 				);
 				
+				// Store the file token value in the _file database table field
 				$this->update(
 					array($this->db_column_prefix.'file' => $token),
 					false
@@ -137,7 +139,7 @@ class Example_2_Model extends Admin_Model
 	}
 
 	/**
-	 * Run normal get method, however get single file upload details
+	 * Run normal get method to retrieve item, but also get single file upload details.
 	 * 
 	 */
 	public function get($id){

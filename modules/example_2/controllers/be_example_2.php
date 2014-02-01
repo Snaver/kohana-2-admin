@@ -1,11 +1,11 @@
 <?php defined('SYSPATH') OR die('No direct access allowed.');
 
 /**
- * Example 2 Controller
+ * Example 2 Admin Controller
  *
  *
  */
-class Example_2_Controller extends Admin_Controller
+class Be_example_2_Controller extends Admin_Controller
 {
 	public $section_name = 'Example 2';
 	public $section_url = 'example_2';
@@ -26,9 +26,7 @@ class Example_2_Controller extends Admin_Controller
 	{
 		parent::__construct();
 		
-		$this->_authenticated();
-			
-		$this->model = new Example_2_Model();
+		$this->model = new Be_example_2_Model();
 		
 		// Set some model properties
 		$this->model->section_name = $this->section_name;
@@ -36,7 +34,7 @@ class Example_2_Controller extends Admin_Controller
 	}
 
 	/**
-	 * Get multi-file upload files
+	 * Get multi-file upload files and assign them to template variable
 	 * 
 	 */
 	public function section_details(){
