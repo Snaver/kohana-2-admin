@@ -1,11 +1,11 @@
 <?php defined('SYSPATH') OR die('No direct access allowed.');
 
 /**
- * Admins admin model
+ * Users admin model
  *
  * 
  */
-class Be_admins_Model extends Admin_Model
+class Be_users_Model extends Admin_Model
 {
 	// Table constants
 	const DB_TABLE 			= 'users';

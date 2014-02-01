@@ -1,15 +1,15 @@
 <?php defined('SYSPATH') OR die('No direct access allowed.');
 
 /**
- * Admins Controller
+ * Users Admin Controller
  *
- * Admin management
+ * Admin/User management
  *
  */
-class Be_admins_Controller extends Admin_Controller
+class Be_users_Controller extends Admin_Controller
 {
-	public $section_name = 'Admins';
-	public $section_url = 'admins';
+	public $section_name = 'Users';
+	public $section_url = 'users';
 	
 	public $tabs = array(
 		0 => 'Basic'
@@ -32,7 +32,7 @@ class Be_admins_Controller extends Admin_Controller
 			url::redirect(url::base(), 301);
 		}
 		
-		$this->model = new Be_admins_Model();
+		$this->model = new Be_users_Model();
 		
 		// Set some model properties
 		$this->model->section_name = $this->section_name;

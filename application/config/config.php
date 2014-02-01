@@ -138,7 +138,7 @@ $config['modules'] = array
 	MODPATH.'files',			// File upload module
 	
 	// Admin section
-	MODPATH.'admins',			// Admins module
+	MODPATH.'users',			// Users/Admin module
 	MODPATH.'example_1',		// Example 1 module
 	MODPATH.'example_2'			// Example 2 module
 );
