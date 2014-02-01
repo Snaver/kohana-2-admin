@@ -41,14 +41,13 @@ There is a single custom Admin route in place that basically removes the admin p
 
 Admin section principles
 ========================
-All admin section Controllers/Models should extend the base Controller/Model, this stops there being repeated code in every Controller/Model. As a minimum for an admin section you must have the following files:
+All admin section Controllers/Models should extend the base Admin Controller/Model, this stops there being repeated code in every single Controller/Model. As a minimum for an admin section you must have the following files:
 
 * **Controller** - Set some class properties and have a basic __construct() method.  
 * **i18n** - Language file.  
-* **Model** - Set some class constants and database fields.  
-* **Views** - Sub folder in views/ containing tab templates  
+* **Model** - Set some class constants and properties and also define the database fields.  
 
-You can easily extend/amend functionality by overriding the default methods contained in the base Controller or Model, you can acheive this either by having the same named method or by overriding, running the parent method and then performing your own logic. I.e. parent::method($args);
+You can easily extend/amend functionality by overriding the default methods contained in the admin base Controller or Model, you can acheive this either by having the same named method or by overriding, running the parent method and then performing your own logic. I.e. parent::method($args);
 
 Example modules
 ---------------
@@ -74,7 +73,6 @@ Improvements
 ============
 Obviously normally you wouldn't use Kohana 2 as it's a bit dated now, however it's the framework I personally have most experience with. Saying that, it does the job - better than Procedural non [OOP code](http://stackoverflow.com/questions/1530868/simple-explanation-php-oop-vs-procedural). If I were to use a modern framework I'd use either [laravel](https://github.com/laravel/laravel) or [kohana 3](https://github.com/kohana/kohana).
 
-* **Modules** - Separate out code in to modules: base, admin, admin sections etc
 * **JavaScript** - Use a JavaScript‎ framework to better architect the logic, making it easily readable and extendable
  
 WIP / Not finished
