@@ -28,6 +28,17 @@ Logins
 ======
 Two test logins are provided 'test' and 'test2' with both passwords set to '123456'.
 
+Router / Controllers
+====================
+The default Routing of URLs -> Controllers has been slightly modified to make things a bit more cleaner.
+
+* All /admin/* URLs will first try and load a controller file named 'be_%SECTION_NAME%', if a Controller of that name cannot be found then it will fall back to normal routing.
+* All other URLs will first try and load a controller file named 'fe_%SECTION_NAME%', if a Controller of that name cannot be found then it will fall back to normal routing.
+
+This was done for a few reasons. Normally you would have an admin directory in the controllers folder with the same name, however because of class naming convention clash this was not possible.
+
+There is a single custom Admin route in place that basically removes the admin part from the requested URL when being parsed by the Router code.
+
 Admin section principles
 ========================
 All admin section controllers/models should extend the base controller/model, this stops there being repeated code in every controller/model. As a minimum for an admin section you must have the following files:
@@ -39,7 +50,13 @@ All admin section controllers/models should extend the base controller/model, th
 
 You can easily extend/amend functionality by overriding the default methods contained in the base controller or model, you can acheive this either by having the same named method or by overriding, running the parent method and then performing your own logic. I.e. parent::method($args);
 
-Example 1 shows how minimal a section can be, no extending and simply relying on the functionality of the base controllers. Example 2 shows how you can change/extend certain things, it has custom validation rules (Model), custom field layout (tab-0.php) and custom template variables set (Controller).
+Example modules
+---------------
+**Example 1** shows how minimal a section can be, no overriding of methods and simply relying on the functionality inherited from the base controllers.
+
+**Example 2** shows how you can change/extend certain functionality, it has custom validation rules (Model), custom field layout (tab-0.php) and custom template variables set (Controller function section_details()).
+
+**Example 3**
 
 Fields
 ------

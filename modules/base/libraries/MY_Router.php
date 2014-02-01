@@ -5,6 +5,9 @@ class Router extends Router_Core {
 	/**
 	 * Router setup routine. Automatically called during Kohana setup process.
 	 *
+	 * Modified to check for be_* and fe_* controllers first based on URL. Will fallback to normal
+	 * controller loading if nothing suitable is found.
+	 * 
 	 */
 	public static function setup()
 	{
