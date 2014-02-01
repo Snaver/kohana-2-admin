@@ -51,6 +51,15 @@ class Be_example_2_Model extends Admin_Model
 				'required'	=> false,
 				'post_process' => true
 			),
+			'file2' => array(
+				'tab'		=> 0,
+				'type'		=> 'file',
+				'label'		=> 'File 2',
+				'value'		=> '',
+				'map_post'	=> true,
+				'required'	=> false,
+				'post_process' => true
+			),
 			'text' => array(
 				'tab'		=> 0,
 				'type'		=> 'textarea',
@@ -91,7 +100,8 @@ class Be_example_2_Model extends Admin_Model
 	}
 
 	/**
-	 * Add custom validation rules, run parent::validation() to run existing rules first
+	 * Add custom validation rules, run parent::validation() to run 
+	 * any existing rules first.
 	 * 
 	 */
 	public function validation($validation = null){
@@ -107,35 +117,11 @@ class Be_example_2_Model extends Admin_Model
 	 * 
 	 */
 	public function post_process($data){
+		parent::post_process($data);
 		
-		// Process single file upload, key used is '_file'
-		if(array_key_exists($this->db_column_prefix.'file', $data)){
-			if(!empty($data[$this->db_column_prefix.'file']['file_system_name']) && file_exists(DOCROOT.'uploads/'.$data[$this->db_column_prefix.'file']['file_system_name'])){	
-				
-				// Mark any previous files as inactive
-				file::inactive($this->id,$this->section_url,$this->section_url);
-				
-				// Insert entry in to files database table
-				$token = file::insert(
-					$this->id,
-					$this->section_url,
-					$this->section_url,
-					$data[$this->db_column_prefix.'file']['file_name'],
-					$data[$this->db_column_prefix.'file']['file_system_name'],
-					$data[$this->db_column_prefix.'file']['file_mime_type'],
-					$data[$this->db_column_prefix.'file']['file_size'],
-					$data[$this->db_column_prefix.'file']['file_extension']
-				);
-				
-				// Store the file token value in the _file database table field
-				$this->update(
-					array($this->db_column_prefix.'file' => $token),
-					false
-				);
-				
-			}
-		}
+		// Custom logic here
 		
+		return;	
 	}
 
 	/**
@@ -145,13 +131,23 @@ class Be_example_2_Model extends Admin_Model
 	public function get($id){
 		$result = parent::get($id);
 		
+		// Turn the file key in to files array which is used by file field template
 		if($result[$this->db_column_prefix.'file']){
-			$file = file::get($id,$this->section_url,$this->section_url);
+			$file = file::get($id,$this->section_url,'example_2_file');
 			
 			if($file){
 				$file['field'] = $this->db_column_prefix.'file';
 				
 				$result[$this->db_column_prefix.'file'] = $file;
+			}
+		}		
+		if($result[$this->db_column_prefix.'file2']){
+			$file = file::get($id,$this->section_url,'example_2_file2');
+			
+			if($file){
+				$file['field'] = $this->db_column_prefix.'file2';
+				
+				$result[$this->db_column_prefix.'file2'] = $file;
 			}
 		}
 

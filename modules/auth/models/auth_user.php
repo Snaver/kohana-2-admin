@@ -60,7 +60,7 @@ class Auth_User_Model extends ORM {
 		if ($array->validate())
 		{
 			// Attempt to load the user
-			$this->find($array['username']);
+			$this->where(array('status' => 1,'deleted' => 0))->find($array['username']);
 
 			if ($this->loaded AND Auth::instance()->login($this, $array['password']))
 			{

@@ -54,9 +54,7 @@ Example modules
 ---------------
 **Example 1** shows how minimal a section can be, no overriding of methods and simply relying on the functionality inherited from the base controllers.
 
-**Example 2** shows how you can change/extend certain functionality, it has custom validation rules (Model), custom field layout (tab-0.php) and custom template variables set (Controller function section_details()).
-
-**Example 3**
+**Example 2** shows how you can change/extend certain functionality to suit your needs. Two single upload fields, Multiple uploads via the Files tab, custom validation rules (Model), custom field layout (tab-0.php) and custom template variables set (Controller function section_details()).
 
 Fields
 ------

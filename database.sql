@@ -45,6 +45,7 @@ CREATE TABLE `example_2` (
   `example_2_email` varchar(100) NOT NULL,
   `example_2_text` text,
   `example_2_file` varchar(20) DEFAULT NULL,
+  `example_2_file2` varchar(20) DEFAULT NULL,
   `example_2_dropdown` int(11) unsigned DEFAULT NULL,
   `example_2_status` tinyint(1) unsigned DEFAULT '1',
   `example_2_created_date` datetime DEFAULT NULL,

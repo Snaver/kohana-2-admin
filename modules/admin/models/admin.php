@@ -307,6 +307,14 @@ class Admin_Model extends Base_Model
 	 * 
 	 */
 	public function post_process($data){
+		
+		// Check for file upload fields
+		foreach($this->fields() as $key => $v){
+			if($v['type'] == 'file'){
+				$this->process_uploaded_file($data,$key,$key);
+			}
+		}
+			
 		return;
 	}
 	
@@ -318,4 +326,42 @@ class Admin_Model extends Base_Model
 		return $this->db->delete($this->db_table,array($this->db_primary_key => $this->id));
 	}
 
+	/**
+	 * Process uploaded single file
+	 * 
+	 * $data	- Copy of admin fields $data
+	 * $field	- The field name
+	 * $type	- The field type
+	 * 
+	 */
+	public function process_uploaded_file(&$data,$field,$type){
+		if(array_key_exists($field, $data)){
+			if(!empty($data[$field]['file_system_name']) && file_exists(DOCROOT.'uploads/'.$data[$field]['file_system_name'])){	
+				
+				// Mark any previous files as inactive
+				file::inactive($this->id,$this->section_url,$type);
+				
+				// Insert entry in to files database table
+				$token = file::insert(
+					$this->id,
+					$this->section_url,
+					$type,
+					$data[$field]['file_name'],
+					$data[$field]['file_system_name'],
+					$data[$field]['file_mime_type'],
+					$data[$field]['file_size'],
+					$data[$field]['file_extension']
+				);
+				
+				// Store the file token value in the _file database table field
+				$this->update(
+					array($field => $token),
+					false
+				);
+				
+			}
+		}
+		
+		return false;
+	}
 }

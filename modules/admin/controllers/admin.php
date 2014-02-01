@@ -1,8 +1,9 @@
 <?php defined('SYSPATH') OR die('No direct access allowed.');
 
 /**
- * Admin Dashboard Controller
+ * Admin Base Controller
  *
+ * All admin section controllers should extend this.
  *
  */
 class Admin_Controller extends Base_Controller
@@ -23,11 +24,10 @@ class Admin_Controller extends Base_Controller
 		
 		$this->auth = new Auth();
 		
-		//$this->_authenticated();
+		$this->_authenticated();
 	}
 	
 	/**
-	 * 
 	 * List page
 	 * 
 	 */
@@ -165,7 +165,7 @@ class Admin_Controller extends Base_Controller
 	}
 	
 	/**
-	 * Handles listing pages
+	 * Handles listing page data
 	 * 
 	 */
 	public function list_data(){
@@ -195,18 +195,34 @@ class Admin_Controller extends Base_Controller
 		return array($pagination, $results);
 	}
 	
+	/**
+	 * Get per page
+	 * 
+	 */
 	public function list_data_per_page(){
 		return $this->input->get('per_page') ? (int)$this->input->get('per_page') : 50;
 	}
 	
+	/**
+	 * Get filters
+	 * 
+	 */
 	public function list_data_filter(){
 		return $this->input->get('filter') ? $this->input->get('filter') : false;
 	}
 	
+	/**
+	 * Get order
+	 * 
+	 */
 	public function list_data_order(){
 		return $this->input->get('order') ? $this->input->get('order') : false;
 	}
 	
+	/**
+	 * Generate pagination
+	 * 
+	 */
 	public function list_data_pagination($total,$per_page){
 		return new Pagination(array(
 			'query_string'		=> 'page',
@@ -281,7 +297,7 @@ class Admin_Controller extends Base_Controller
 	        }
 			
 			// Process files
-			$this->process_files($id);
+			$this->process_uploaded_files($id);
 	        
 	        // Audit trace
 	        $this->audit_record('edit',$this->section_url,$id,$data);
@@ -307,7 +323,7 @@ class Admin_Controller extends Base_Controller
 	 * Process uploaded files from jQuery File Upload (Multiple table)
 	 * 
 	 */
-	public function process_files($id){
+	public function process_uploaded_files($id){
 		if(isset($_POST['files']) && !empty($_POST['files']) && is_array($_POST['files'])){
 			$files = arr::map_post_keys($_POST['files']);
 			

@@ -5,7 +5,7 @@
  *
  * 
  */
-class Files_Model extends Base_Model
+class Files_Model extends Admin_Model
 {
 	// Table constants
 	const DB_TABLE 			= 'files';

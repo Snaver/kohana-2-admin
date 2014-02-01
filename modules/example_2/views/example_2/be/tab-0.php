@@ -11,6 +11,7 @@
 	<div class="col-lg-6">
 		
 		<?=new View('includes/fields/file', array('field' => 'example_2_file'));?>
+		<?=new View('includes/fields/file', array('field' => 'example_2_file2'));?>
 		<?=new View('includes/fields/textarea', array('field' => 'example_2_text'));?>
 		
 	</div>
