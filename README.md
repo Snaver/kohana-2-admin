@@ -1,6 +1,6 @@
 kohana-2-admin
 ==============
-Barebones base admin system built on Kohana 2.3.1 with Bootstrap CSS framework.
+Barebones admin system built on Kohana 2.3.1 with Bootstrap CSS framework.
 
 ![Example 1](Screenshot-1.png?raw=true)
 ![Example 2](Screenshot-2.png?raw=true)
@@ -23,6 +23,10 @@ Projects utilised
 [selectivizr - v1.0.2](https://github.com/keithclark/selectivizr)  
 [respond - v1.3.0](https://github.com/scottjehl/Respond)  
 [tmpl - v2.4.1](https://github.com/blueimp/JavaScript-Templates)
+
+Logins
+======
+Two test logins are provided 'test' and 'test2' with both passwords set to '123456'.
 
 Admin section principles
 ========================

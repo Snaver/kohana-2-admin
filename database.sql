@@ -191,7 +191,7 @@ CREATE TABLE `users` (
 
 /*Data for the table `users` */
 
-insert  into `users`(`id`,`email`,`username`,`password`,`logins`,`last_login`,`status`,`created_date`,`updated_date`,`deleted`,`deleted_date`,`last_editor`) values (1,'test@example.com','test','8e8b3d6e7db133b870a8d2b8a017216b5f7a24def0e89f87c',1,1386800314,1,NULL,'2013-12-12 19:01:29',0,NULL,1),(2,'test2@example.com','test2','97bf93e8c4780b17954676d49092fd6ff9abba5f01546d3f2',0,NULL,1,'2013-12-12 19:02:08','2013-12-12 19:07:17',0,NULL,1);
+insert  into `users`(`id`,`email`,`username`,`password`,`logins`,`last_login`,`status`,`created_date`,`updated_date`,`deleted`,`deleted_date`,`last_editor`) values (1,'test@example.com','test','78a90d789e615c50a8cce3e479e2a6c484c3209bcc47a9e5a6',0,NULL,1,NOW(),NULL,0,NULL,NULL),(2,'test2@example.com','test2','78a90d789e615c50a8cce3e479e2a6c484c3209bcc47a9e5a6',0,NULL,1,NOW(),NULL,0,NULL,NULL);
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
