@@ -140,5 +140,6 @@ $config['modules'] = array
 	// Admin section
 	MODPATH.'users',			// Users/Admin module
 	MODPATH.'example_1',		// Example 1 module
-	MODPATH.'example_2'			// Example 2 module
+	MODPATH.'example_2',		// Example 2 module
+	MODPATH.'example_3'			// Example 3 module
 );

@@ -1,7 +1,7 @@
 <?php defined('SYSPATH') OR die('No direct access allowed.');
 
 /**
- * Example 1 model
+ * Example 1 admin model
  *
  * 
  */

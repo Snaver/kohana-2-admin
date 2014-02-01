@@ -56,6 +56,23 @@ CREATE TABLE `example_2` (
   PRIMARY KEY (`example_2_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
+/*Table structure for table `example_3` */
+
+DROP TABLE IF EXISTS `example_3`;
+
+CREATE TABLE `example_3` (
+  `example_3_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `example_3_name` varchar(255) NOT NULL,
+  `example_3_type` int(11) unsigned DEFAULT NULL,
+  `example_3_status` tinyint(1) unsigned DEFAULT '1',
+  `example_3_created_date` datetime DEFAULT NULL,
+  `example_3_updated_date` datetime DEFAULT NULL,
+  `example_3_deleted` tinyint(1) unsigned DEFAULT '0',
+  `example_3_deleted_date` datetime DEFAULT NULL,
+  `example_3_last_editor` tinyint(11) unsigned DEFAULT NULL,
+  PRIMARY KEY (`example_3_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
 /*Table structure for table `fileLinks` */
 
 DROP TABLE IF EXISTS `fileLinks`;

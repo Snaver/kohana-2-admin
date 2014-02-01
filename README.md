@@ -32,33 +32,35 @@ Router / Controllers
 ====================
 The default Routing of URLs -> Controllers has been slightly modified to make things a bit more cleaner.
 
-* All /admin/* URLs will first try and load a controller file named 'be_%SECTION_NAME%', if a Controller of that name cannot be found then it will fall back to normal routing.
-* All other URLs will first try and load a controller file named 'fe_%SECTION_NAME%', if a Controller of that name cannot be found then it will fall back to normal routing.
+* All /admin/* URLs will first try and load a Controller file named 'be_%SECTION_NAME%', if a Controller of that name cannot be found then it will fall back to normal routing.
+* All other URLs will first try and load a Controller file named 'fe_%SECTION_NAME%', if a Controller of that name cannot be found then it will fall back to normal routing.
 
-This was done for a few reasons. Normally you would have an admin directory in the controllers folder with the same name, however because of class naming convention clash this was not possible.
+This was done for a few reasons. Normally you would have an admin directory in the Controllers folder with the same name, however because of class naming convention clash this was not possible.
 
 There is a single custom Admin route in place that basically removes the admin part from the requested URL when being parsed by the Router code.
 
 Admin section principles
 ========================
-All admin section controllers/models should extend the base controller/model, this stops there being repeated code in every controller/model. As a minimum for an admin section you must have the following files:
+All admin section Controllers/Models should extend the base Controller/Model, this stops there being repeated code in every Controller/Model. As a minimum for an admin section you must have the following files:
 
 * **Controller** - Set some class properties and have a basic __construct() method.  
 * **i18n** - Language file.  
 * **Model** - Set some class constants and database fields.  
 * **Views** - Sub folder in views/ containing tab templates  
 
-You can easily extend/amend functionality by overriding the default methods contained in the base controller or model, you can acheive this either by having the same named method or by overriding, running the parent method and then performing your own logic. I.e. parent::method($args);
+You can easily extend/amend functionality by overriding the default methods contained in the base Controller or Model, you can acheive this either by having the same named method or by overriding, running the parent method and then performing your own logic. I.e. parent::method($args);
 
 Example modules
 ---------------
-**Example 1** shows how minimal a section can be, no overriding of methods and simply relying on the functionality inherited from the base controllers.
+**Example 1** shows how minimal a section can be, no overriding of methods and simply relying on the functionality inherited from the base Controllers.
 
 **Example 2** shows how you can change/extend certain functionality to suit your needs. Two single upload fields, Multiple uploads via the Files tab, custom validation rules (Model), custom field layout (tab-0.php) and custom template variables set (Controller function section_details()).
 
+**Example 3** shows how you can modify the list pages by extending both Controller and Model methods. In this example a type field is used to add tabs to the list page so that you can quickly sort and filter the data.
+
 Fields
 ------
-There are 9 supported field types: Checkbox, File, Input, Input Date, Input Number, Input Password, Radio, Select and Textarea. For each field in the model a type is set, this is then used to load corresponding view which contains the markup and logic for that type.
+There are 9 supported field types: Checkbox, File, Input, Input Date, Input Number, Input Password, Radio, Select and Textarea. For each field in the Model a type is set, this is then used to load corresponding view which contains the markup and logic for that type.
 
 Database table schema
 =====================
