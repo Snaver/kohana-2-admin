@@ -30,12 +30,12 @@ Two test logins are provided 'test' and 'test2' with both passwords set to '1234
 
 Router / Controllers
 ====================
-The default Routing of URLs -> Controllers has been slightly modified to make things a bit more cleaner.
+The default Routing of URLs -> Controllers has been slightly modified to make it easier to identify admin and frontend Controllers. Here's how it works:
 
 * All /admin/* URLs will first try and load a Controller file named 'be_%SECTION_NAME%', if a Controller of that name cannot be found then it will fall back to normal routing.
 * All other URLs will first try and load a Controller file named 'fe_%SECTION_NAME%', if a Controller of that name cannot be found then it will fall back to normal routing.
 
-This was done for a few reasons. Normally you would have an admin directory in the Controllers folder with the same name, however because of class naming convention clash this was not possible.
+This was done for a few reasons. Normally you would either have an admin directory in the Controllers folder with the same name or a Controller file prefied with admin, the admin prefix would be fine albeit messy.The admin directory method would cause a class name clash if they were both named the same thing.
 
 There is a single custom Admin route in place that basically removes the admin part from the requested URL when being parsed by the Router code.
 
@@ -57,7 +57,7 @@ Example modules
 
 **Example 3** shows how you can modify the list pages by extending both Controller and Model methods. In this example a type field is used to add tabs to the list page so that you can quickly sort and filter the data.
 
-Fields
+Reusable HTML Admin Fields
 ------
 There are 9 supported field types: Checkbox, File, Input, Input Date, Input Number, Input Password, Radio, Select and Textarea. For each field in the Model a type is set, this is then used to load corresponding view which contains the markup and logic for that type.
 
