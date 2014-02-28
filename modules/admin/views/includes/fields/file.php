@@ -26,17 +26,17 @@
 	
 ?>
 <div data-field="<?=$field;?>" class="form-group field_input clearfix <?=($error ? 'has-error' : '');?>">
-	<label for="<?=$field;?>" class="col-lg-3 control-label"><?=$label;?> <?php if($required){ ?><span class="required">*</span><?php } ?></label>
-	<div class="col-lg-9">
+	<label for="<?=$field;?>" class="col-lg-3 col-md-3 control-label"><?=$label;?> <?php if($required){ ?><span class="required">*</span><?php } ?></label>
+	<div class="col-lg-9 col-md-9">
 		<div class="row single_uploader" date-area="<?=$section_url;?>" data-field="<?=$field;?>" data-files="<?=$files;?>">
-			<div class="col-lg-5">
+			<div class="col-lg-5 col-md-5 col-sm-5">
 				<span class="btn btn-primary fileinput-button">
 					<i class="glyphicon glyphicon-plus"></i>
 					<span>Upload file</span>
 					<input type="file" name="files[]" />
 				</span>
 			</div>
-			<div class="files col-lg-7"></div>
+			<div class="files col-lg-7 col-md-7 col-sm-7"></div>
 		</div>
 	</div>
 </div>

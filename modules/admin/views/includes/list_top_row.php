@@ -1,10 +1,10 @@
 <?php defined('SYSPATH') OR die('No direct access allowed.'); ?>
 
 <div class="row">
-	<div class="col-lg-2">
+	<div class="col-lg-2 col-md-2 col-sm-2">
 		<a href="<?=url::base().Kohana::config('admin.url');?>/<?=$section_url;?>/add" class="btn btn-primary">New</a>
 	</div>
-	<div id="admin_list_options" class="col-lg-10 text-right">
+	<div id="admin_list_options" class="col-lg-10 col-md-10 col-sm-10 text-right">
 		<div class="form-group" style="margin-right:15px">
 			<label for="filters" class="control-label">Filter</label>
 			<?php

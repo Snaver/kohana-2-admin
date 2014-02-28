@@ -1,9 +1,9 @@
 <?php defined('SYSPATH') OR die('No direct access allowed.'); ?>
    	<footer class="row top-buffer">
-  		<div class="col-lg-6">
+  		<div class="col-lg-6 col-md-6 col-sm-6">
 			Executed in {execution_time} and used {memory_usage} of memory.
 		</div>
-		<div class="col-lg-6 text-right">
+		<div class="col-lg-6 col-md-6 col-sm-6 text-right">
 			&copy; <?=date('Y');?>
 		</div>
    	</footer>

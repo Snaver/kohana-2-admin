@@ -1,6 +1,6 @@
 kohana-2-admin
 ==============
-Barebones admin system built on Kohana 2.3.1 with Bootstrap CSS framework.
+Barebones admin system built on Kohana 2.3.1 with Bootstrap CSS framework, built to work on large desktops and tablets.
 
 ![Example 1](Screenshot-1.png?raw=true)
 ![Example 2](Screenshot-2.png?raw=true)
@@ -13,7 +13,7 @@ Projects utilised
 
 [jQuery - v1.10.2](https://github.com/jquery/jquery)  
 [jQuery UI - v1.10.3](https://github.com/jquery/jquery-ui)  
-[Bootstrap - v3.0.3 customised](https://github.com/twbs/bootstrap)  
+[Bootstrap - v3.1.1 customised](https://github.com/twbs/bootstrap)  
 [Bootbox - v4.0.0](https://github.com/makeusabrew/bootbox)  
 [Bootstrap Datetimepicker - v2.1.11](https://github.com/Eonasdan/bootstrap-datetimepicker)  
 [Moment - v2.2.1](https://github.com/moment/moment)  
@@ -60,6 +60,9 @@ Example modules
 Reusable HTML Admin Fields
 ------
 There are 9 supported field types: Checkbox, File, Input, Input Date, Input Number, Input Password, Radio, Select and Textarea. For each field in the Model a type is set, this is then used to load corresponding view which contains the markup and logic for that type.
+
+**File Uploads**
+Files uploaded via the multi-uploader and single uploader are both stored in the files database. File uploads are securely handled both on upload and when stored on the file system, tokens are used when downloading files so that stored path is not revealed. Both methods use the jQuery-File-Upload plugin.
 
 Database table schema
 =====================

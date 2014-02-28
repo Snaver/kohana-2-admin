@@ -5,7 +5,7 @@
   	<meta charset="utf-8">
   	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Kohana 2 Admin</title>
-    <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <link href="<?=url::base();?>assets/css/bootstrap.min.css<?=Kohana::config('core.asset_version');?>" rel="stylesheet" media="screen">
     <link href="<?=url::base();?>assets/css/bootstrap-datetimepicker.min.css<?=Kohana::config('core.asset_version');?>" rel="stylesheet" media="screen">
@@ -44,12 +44,12 @@
   <body class="">
   	<div class="container">
   		<div class="row">
-  			<div class="col-lg-8">
+  			<div class="col-lg-8 col-md-8 col-sm-8">
   				<a href="<?=url::base();?>">
   					<img src="<?=url::base();?>assets/images/logo.png" alt="Logo" />		
   				</a>
   			</div>
-  			<div class="col-lg-4">
+  			<div class="col-lg-4 col-md-4 col-sm-4">
   				<div id="header_account" class="text-right">
   					<?php if(Auth::instance()->logged_in()){ ?>
   						<span><?=Auth::instance()->get_user()->username;?></span> - <a href="<?=url::base();?>account/logout">Logout</a>
@@ -69,7 +69,7 @@
 		</div>
 		<noscript>
 			<div class="row top-buffer">
-	  			<div class="col-lg-6 col-lg-offset-3">
+	  			<div class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3">
 	  				<div class="alert alert-danger">Warning! Javascript is required for this site to run correctly.</div>
 	  			</div>
   			</div>

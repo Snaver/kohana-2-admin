@@ -36,8 +36,8 @@
 	
 ?>
 <div data-field="<?=$field;?>" class="form-group field_input field_input_date clearfix <?=($error ? 'has-error' : '');?>">
-	<label for="<?=$field;?>" class="col-lg-3 control-label"><?=$label;?> <?php if($required){ ?><span class="required">*</span><?php } ?></label>
-	<div class="col-lg-9 input-group" style="padding:0 15px;">
+	<label for="<?=$field;?>" class="col-lg-3 col-md-3 control-label"><?=$label;?> <?php if($required){ ?><span class="required">*</span><?php } ?></label>
+	<div class="col-lg-9 col-md-9 input-group" style="padding:0 15px;">
 		<?php
 			print form::input(
 				array(

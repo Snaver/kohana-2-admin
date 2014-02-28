@@ -89,32 +89,6 @@ echo new View('includes/header_inner'); ?>
 			<div class="panel-heading"><strong>Full panel	</strong></div>
 			<div class="panel-body">
 				<p>Vestibulum risus lectus, porttitor quis odio eget, tincidunt mattis tellus. </p>
-			</div>			
-			<div class="tableContainer">
-				<table class="table">
-					<thead class="fixedHeader">
-						<tr>
-							<th width="220px">Client</th>
-							<th width="220px">Ref</th>
-							<th width="100px">Delivery</th>
-							<th width="160px">Status</th>
-							<th width="101px"></th>
-						</tr>
-				  	</thead>
-				  	<tbody class="scrollContent">
-						<?php for ($i = 1; $i <= 20; $i++) { ?>
-							<tr>
-								<td width="220px">Lorem ipsum dolor si</td>
-								<td width="220px">Ref</td>
-								<td width="100px">09-12-2013</td>
-								<td width="160px">Awaiting confirmation</td>
-								<td width="101px" class="text-right">
-									<a href="#">View</a>
-								</td>
-							</tr>
-						<?php } ?>
-					</tbody>
-				</table>
 			</div>
 		</div>
 	</div>

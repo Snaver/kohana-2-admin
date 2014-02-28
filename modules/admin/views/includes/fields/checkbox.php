@@ -20,8 +20,8 @@
 
 ?>
 <div data-field="<?=$field;?>" class="form-group field_input clearfix <?=($error ? 'has-error' : '');?>">
-	<label for="<?=$field;?>" class="col-lg-3 control-label"><?=$label;?> <?php if($required){ ?><span class="required">*</span><?php } ?></label>
-    <div class="col-lg-9">
+	<label for="<?=$field;?>" class="col-lg-3 col-md-9 control-label"><?=$label;?> <?php if($required){ ?><span class="required">*</span><?php } ?></label>
+    <div class="col-lg-9 col-md-9">
     	<div class="checkbox">
     		<label>
 		    <?php
