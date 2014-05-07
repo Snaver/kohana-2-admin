@@ -136,6 +136,7 @@ $config['modules'] = array
 	MODPATH.'admin',			// Admin (BE / Back End) module
 	MODPATH.'front_end',		// Front End (FE) module
 	MODPATH.'files',			// File upload module
+	MODPATH.'assets',			// Assets module (CSS/JS/LESS)
 	
 	// Admin section
 	MODPATH.'users',			// Users/Admin module

@@ -7,13 +7,13 @@
     <title>Kohana 2 Admin</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <link href="<?=url::base();?>assets/css/bootstrap.min.css<?=Kohana::config('core.asset_version');?>" rel="stylesheet" media="screen">
-    <link href="<?=url::base();?>assets/css/bootstrap-datetimepicker.min.css<?=Kohana::config('core.asset_version');?>" rel="stylesheet" media="screen">
-    <link href="<?=url::base();?>assets/css/jQuery-File-Upload/jquery.fileupload-ui.css<?=Kohana::config('core.asset_version');?>" rel="stylesheet" media="screen">
-    <link href="<?=url::base();?>assets/css/global.css<?=Kohana::config('core.asset_version');?>" rel="stylesheet">
+    <?=assets::less('assets/styles/bootstrap/bootstrap.less',array('body-bg'=>'231f20','text-color'=>'#fff','legend-color'=>'#fff','nav-tabs-active-link-hover-bg'=>'#fff'));?>
+    <link href="<?=url::base();?>assets/styles/bootstrap-datetimepicker.min.css<?=Kohana::config('core.asset_version');?>" rel="stylesheet" media="screen">
+    <link href="<?=url::base();?>assets/styles/jQuery-File-Upload/jquery.fileupload-ui.css<?=Kohana::config('core.asset_version');?>" rel="stylesheet" media="screen">
+    <link href="<?=url::base();?>assets/styles/global.css<?=Kohana::config('core.asset_version');?>" rel="stylesheet">
     
-    <script src="<?=url::base();?>assets/js/jquery-1.10.2.min.js<?=Kohana::config('core.asset_version');?>"></script>
-    <script src="<?=url::base();?>assets/js/jquery-ui-1.10.3.min.js<?=Kohana::config('core.asset_version');?>"></script>
+    <script src="<?=url::base();?>assets/scripts/jquery-1.10.2.min.js<?=Kohana::config('core.asset_version');?>"></script>
+    <script src="<?=url::base();?>assets/scripts/jquery-ui-1.10.3.min.js<?=Kohana::config('core.asset_version');?>"></script>
     
     <script type="text/javascript">
     	// Define some global vars
@@ -24,22 +24,22 @@
     
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-      <script src="<?=url::base();?>assets/js/html5shiv.js"></script>
-      <script src="<?=url::base();?>assets/js/respond.min.js"></script>
+      <script src="<?=url::base();?>assets/scripts/html5shiv.js"></script>
+      <script src="<?=url::base();?>assets/scripts/respond.min.js"></script>
     <![endif]-->
     
-    <script src="<?=url::base();?>assets/js/tmpl.min.js<?=Kohana::config('core.asset_version');?>"></script>
-    <script src="<?=url::base();?>assets/js/functions.js<?=Kohana::config('core.asset_version');?>"></script>
-    <script src="<?=url::base();?>assets/js/bootstrap.min.js<?=Kohana::config('core.asset_version');?>"></script>
-    <script src="<?=url::base();?>assets/js/bootbox.min.js<?=Kohana::config('core.asset_version');?>"></script>
-    <script src="<?=url::base();?>assets/js/moment-with-langs.min.js<?=Kohana::config('core.asset_version');?>"></script>    
-    <script src="<?=url::base();?>assets/js/bootstrap-datetimepicker.min.js<?=Kohana::config('core.asset_version');?>"></script>    
-    <script src="<?=url::base();?>assets/js/jQuery-File-Upload/jquery.iframe-transport.js<?=Kohana::config('core.asset_version');?>"></script>
-    <script src="<?=url::base();?>assets/js/jQuery-File-Upload/jquery.fileupload.js<?=Kohana::config('core.asset_version');?>"></script>    
-    <script src="<?=url::base();?>assets/js/jQuery-File-Upload/jquery.fileupload-process.js<?=Kohana::config('core.asset_version');?>"></script>
-    <script src="<?=url::base();?>assets/js/jQuery-File-Upload/jquery.fileupload-validate.js<?=Kohana::config('core.asset_version');?>"></script>
-    <script src="<?=url::base();?>assets/js/jQuery-File-Upload/jquery.fileupload-ui.js<?=Kohana::config('core.asset_version');?>"></script>
-    <script src="<?=url::base();?>assets/js/site.js<?=Kohana::config('core.asset_version');?>"></script>
+    <script src="<?=url::base();?>assets/scripts/tmpl.min.js<?=Kohana::config('core.asset_version');?>"></script>
+    <script src="<?=url::base();?>assets/scripts/functions.js<?=Kohana::config('core.asset_version');?>"></script>
+    <script src="<?=url::base();?>assets/scripts/bootstrap.min.js<?=Kohana::config('core.asset_version');?>"></script>
+    <script src="<?=url::base();?>assets/scripts/bootbox.min.js<?=Kohana::config('core.asset_version');?>"></script>
+    <script src="<?=url::base();?>assets/scripts/moment-with-langs.min.js<?=Kohana::config('core.asset_version');?>"></script>    
+    <script src="<?=url::base();?>assets/scripts/bootstrap-datetimepicker.min.js<?=Kohana::config('core.asset_version');?>"></script>    
+    <script src="<?=url::base();?>assets/scripts/jQuery-File-Upload/jquery.iframe-transport.js<?=Kohana::config('core.asset_version');?>"></script>
+    <script src="<?=url::base();?>assets/scripts/jQuery-File-Upload/jquery.fileupload.js<?=Kohana::config('core.asset_version');?>"></script>    
+    <script src="<?=url::base();?>assets/scripts/jQuery-File-Upload/jquery.fileupload-process.js<?=Kohana::config('core.asset_version');?>"></script>
+    <script src="<?=url::base();?>assets/scripts/jQuery-File-Upload/jquery.fileupload-validate.js<?=Kohana::config('core.asset_version');?>"></script>
+    <script src="<?=url::base();?>assets/scripts/jQuery-File-Upload/jquery.fileupload-ui.js<?=Kohana::config('core.asset_version');?>"></script>
+    <script src="<?=url::base();?>assets/scripts/site.js<?=Kohana::config('core.asset_version');?>"></script>
   </head>
   <body class="">
   	<div class="container">
