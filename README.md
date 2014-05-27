@@ -35,19 +35,19 @@ The default Routing of URLs -> Controllers has been slightly modified to make it
 * All /admin/* URLs will first try and load a Controller file named 'be_%SECTION_NAME%', if a Controller of that name cannot be found then it will fall back to normal routing.
 * All other URLs will first try and load a Controller file named 'fe_%SECTION_NAME%', if a Controller of that name cannot be found then it will fall back to normal routing.
 
-This was done for a few reasons. Normally you would either have an admin directory in the Controllers folder with the same name or a Controller file prefied with admin, the admin prefix would be fine albeit messy.The admin directory method would cause a class name clash if they were both named the same thing.
+This was done for a few reasons. Normally you would either have an admin directory in the Controllers folder with the same name or a Controller file prefixed with admin, the admin prefix would be fine and work - albeit a bit messy IMO.The admin directory method would cause a class name clash if they were both named the same thing, which is annoying.
 
 There is a single custom Admin route in place that basically removes the admin part from the requested URL when being parsed by the Router code.
 
 Admin section principles
 ========================
-All admin section Controllers/Models should extend the base Admin Controller/Model, this stops there being repeated code in every single Controller/Model. As a minimum for an admin section you must have the following files:
+All admin section Controllers/Models should extend the base Admin Controller/Model, this stops there being repeated code in every single Controller/Model as there are generic methods in the base Controller which handle things such as add, edit, list pages and template variables for example. As a minimum for an admin section 'module' you must have the following files:
 
 * **Controller** - Set some class properties and have a basic __construct() method.  
 * **i18n** - Language file.  
 * **Model** - Set some class constants and properties and also define the database fields.  
 
-You can easily extend/amend functionality by overriding the default methods contained in the admin base Controller or Model, you can acheive this either by having the same named method or by overriding, running the parent method and then performing your own logic. I.e. parent::method($args);
+You can easily extend/amend functionality by overriding the default methods contained in the admin base Controller/Model, you can acheive this either by having the same named method or by overriding, running the parent method and then performing your own logic. I.e. parent::method($args);. This just follows normal OO practices.
 
 Example modules
 ---------------
@@ -55,14 +55,14 @@ Example modules
 
 **Example 2** shows how you can change/extend certain functionality to suit your needs. Two single upload fields, Multiple uploads via the Files tab, custom validation rules (Model), custom field layout (tab-0.php) and custom template variables set (Controller function section_details()).
 
-**Example 3** shows how you can modify the list pages by extending both Controller and Model methods. In this example a type field is used to add tabs to the list page so that you can quickly sort and filter the data.
+**Example 3** shows how you can modify the list pages by extending both Controller and Model methods which handle listing the data. In this example a 'type' field is used to add tabs to the list page so that you can quickly sort and filter the data.
 
 Reusable HTML Admin Fields
 ------
-There are 9 supported field types: Checkbox, File, Input, Input Date, Input Number, Input Password, Radio, Select and Textarea. For each field in the Model a type is set, this is then used to load corresponding view which contains the markup and logic for that type.
+There are 9 currently supported field types: Checkbox, File, Input, Input Date, Input Number, Input Password, Radio, Select and Textarea. For each field in the Model a type is set, this is then used to load corresponding view which contains the markup and logic for that type, based on these fields there is also some post processing performed in the model after POST.
 
 **File Uploads**
-Files uploaded via the multi-uploader and single uploader are both stored in the files database. File uploads are securely handled both on upload and when stored on the file system, tokens are used when downloading files so that stored path is not revealed. Both methods use the jQuery-File-Upload plugin.
+Files uploaded via the multi-uploader and single uploader are both stored in the files table. File uploads are securely handled both on upload and when stored on the file system, tokens are used when downloading files so that stored path is not revealed. Both methods use the jQuery-File-Upload plugin.
 
 Database table schema
 =====================
@@ -74,7 +74,7 @@ For consistency all database tables and columns should use the following convent
 
 Improvements
 ============
-Obviously normally you wouldn't use Kohana 2 as it's a bit dated now, however it's the framework I personally have most experience with. Saying that, it does the job - better than Procedural non [OOP code](http://stackoverflow.com/questions/1530868/simple-explanation-php-oop-vs-procedural). If I were to use a modern framework I'd use either [laravel](https://github.com/laravel/laravel) or [kohana 3](https://github.com/kohana/kohana).
+Obviously normally you wouldn't use Kohana 2 as it's a bit dated now, however it's the framework I personally have most experience with. Saying that, it does the job - better than Procedural non [OOP code](http://stackoverflow.com/questions/1530868/simple-explanation-php-oop-vs-procedural). If I were to use a modern framework I'd use either [laravel](https://github.com/laravel/laravel), [kohana 3](https://github.com/kohana/kohana) or a self-rolled framework utilising Composer for the components needed.
 
 * **JavaScript** - Use a JavaScript‎ framework to better architect the logic, making it easily readable and extendable
  
