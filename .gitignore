@@ -1,2 +1,7 @@
-application/cache/*
-application/logs/*
+httpdocs/application/cache/*
+httpdocs/application/logs/*
+httpdocs/cache/*
+
+.vagrant
+puphpet/files/dot/ssh
+!puphpet/files/dot/ssh/insecure_private_key
