@@ -7,7 +7,15 @@
     <title>Kohana 2 Admin</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <?=assets::less('assets/styles/bootstrap/bootstrap.less',array('body-bg'=>'231f20','text-color'=>'#fff','legend-color'=>'#fff','nav-tabs-active-link-hover-bg'=>'#fff'));?>
+    <?=assets::less(
+      'assets/styles/bootstrap/bootstrap.less',
+      array(
+        'body-bg'=>'231f20',
+        'text-color'=>'#fff',
+        'legend-color'=>'#fff',
+        'nav-tabs-active-link-hover-bg'=>'#fff'
+      )
+    );?>
     <link href="<?=url::base();?>assets/styles/bootstrap-datetimepicker.min.css<?=Kohana::config('core.asset_version');?>" rel="stylesheet" media="screen">
     <link href="<?=url::base();?>assets/styles/jQuery-File-Upload/jquery.fileupload-ui.css<?=Kohana::config('core.asset_version');?>" rel="stylesheet" media="screen">
     <link href="<?=url::base();?>assets/styles/global.css<?=Kohana::config('core.asset_version');?>" rel="stylesheet">
